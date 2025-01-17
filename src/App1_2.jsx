@@ -5,15 +5,13 @@ import './App.css'
 // import Product from './pr1/component/Poroduct/Product.jsx'
 // import Product2 from './pr1/component/Product2/Product2.jsx';
 //  Practic 2
- // import ClickButoon from './pr2/components/ClickButoon.jsx/ClickButoon.jsx';
-import { useEffect, useState } from "react";
-import ClickButton3 from './pr2/components/ClickButton3/ClickButton3.jsx';
-import ClickButton4 from './pr2/components/ClickButton4/ClickButton4.jsx';
-import ClickEffect from './pr2/components/ClickEffect/ClickEffect.jsx';
-import Modal from './pr2/components/ClickEffect/Modal.jsx';
+// import ClickButoon from './pr2/components/ClickButoon.jsx/ClickButoon.jsx';
+// import { useEffect, useState } from "react";
 // import ClickButton2 from './pr2/components/ClickButton2/ClickButton2.jsx';
-
-
+// import ClickButton3 from './pr2/components/ClickButton3/ClickButton3.jsx';
+// import ClickButton4 from './pr2/components/ClickButton4/ClickButton4.jsx';
+// import ClickEffect from './pr2/components/ClickEffect/ClickEffect.jsx';
+// import Modal from './pr2/components/ClickEffect/Modal.jsx';
 
 
 //  Practic 1
@@ -24,13 +22,7 @@ import Modal from './pr2/components/ClickEffect/Modal.jsx';
 //   { id: "id-3", name: "React Router overview" }
 // ];
 
- //  Practic 2
-
-
-
-
-
-function App1_2() {
+ function App1_2() {
   //  Practic 1
   // const url =
   //   "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640";
