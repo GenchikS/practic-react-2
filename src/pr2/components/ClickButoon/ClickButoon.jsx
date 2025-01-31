@@ -5,4 +5,4 @@ const ClickButoon = ({message, children}) => {
     )
 }
 
-export default ClickButoon
+export default ClickButoon;
