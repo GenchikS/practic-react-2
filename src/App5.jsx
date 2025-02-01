@@ -17,7 +17,7 @@ const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
 };
 
-// заміна імпортів компонентів на асинхронне завантаження лише при необхідності компоненту. Перехід за маршрутом компоненту
+// заміна імпортів компонентів на асинхронне завантаження лише при необхідності завантаження компоненту. Перехід за маршрутом компоненту
 const HomePage = lazy(() => import("./pr5/pages/HomePage.jsx"));
 const AboutPage = lazy(() => import("./pr5/pages/AboutPage.jsx"));
 const CollectionsPage = lazy(() => import("./pr5/pages/CollectionsPage.jsx"));
@@ -43,7 +43,8 @@ export default function App5() {
         </NavLink>
       </nav>
       <Layout>
-        <Suspense>
+        {/* Suspense - зупиняє завантаження всіх маршрутів. fallback={<div>Loading...</div>} - дія за замовчуванням при завантаженні */}
+        <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />}>

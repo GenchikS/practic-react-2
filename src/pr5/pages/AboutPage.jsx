@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
 export default function AboutPage() {
@@ -37,7 +38,10 @@ export default function AboutPage() {
           </button>
         </li>
       </ul>
-      <Outlet />
+      {/* Suspense - зупиняє завантаження всіх маршрутів. fallback={<div>Loading...</div>} - дія за замовчуванням при завантаженні */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </main>
   );
 }
