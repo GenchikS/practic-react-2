@@ -8,8 +8,7 @@ export const SearchBox = ({ value, onChange }) => {
             value={value}
             onChange={(e) => onChange(e.target.value)}
                 />
-                <button type="submit">Search</button>
-        </form>
+          </form>
       </div>
     );
 };

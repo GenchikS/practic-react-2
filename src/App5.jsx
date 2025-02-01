@@ -1,18 +1,32 @@
 import { NavLink, Route, Routes } from "react-router-dom";
-import HomePage from "./pr5/pages/HomePage.jsx";
 import Layout from "./pr5/components/Layout.jsx";
-import AboutPage from "./pr5/pages/AboutPage.jsx";
-import NotFoundPage from "./pr5/pages/NotFoundPage.jsx";
-import ProductsPage from "./pr5/pages/ProductsPage.jsx";
 import clsx from "clsx";
 import css from "./app5.module.css"
-import ProductsDetailsPage from "./pr5/pages/ProductsDetailsPage.jsx";
-import CollectionsPage from "./pr5/pages/CollectionsPage.jsx";
-import ContactsPage from "./pr5/pages/ContactsPage.jsx";
+import { lazy, Suspense } from "react";
+//  прибирання імпротів та заміна їх на lazy на асинхронне завантаження лише при необхідності компоненту
+// import HomePage from "./pr5/pages/HomePage.jsx";
+// import AboutPage from "./pr5/pages/AboutPage.jsx";
+// import CollectionsPage from "./pr5/pages/CollectionsPage.jsx";
+// import ContactsPage from "./pr5/pages/ContactsPage.jsx";
+// import ProductsPage from "./pr5/pages/ProductsPage.jsx";
+// import ProductsDetailsPage from "./pr5/pages/ProductsDetailsPage.jsx";
+// import NotFoundPage from "./pr5/pages/NotFoundPage.jsx";
+
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
 };
+
+// заміна імпортів компонентів на асинхронне завантаження лише при необхідності компоненту. Перехід за маршрутом компоненту
+const HomePage = lazy(() => import("./pr5/pages/HomePage.jsx"));
+const AboutPage = lazy(() => import("./pr5/pages/AboutPage.jsx"));
+const CollectionsPage = lazy(() => import("./pr5/pages/CollectionsPage.jsx"));
+const ContactsPage = lazy(() => import("./pr5/pages/ContactsPage.jsx"));
+const ProductsPage = lazy(() => import("./pr5/pages/ProductsPage.jsx"));
+const ProductsDetailsPage = lazy(() => import("./pr5/pages/ProductsDetailsPage.jsx"));
+const NotFoundPage = lazy(() => import("./pr5/pages/NotFoundPage.jsx"));
+
+
 
 export default function App5() {
   return (
@@ -29,16 +43,21 @@ export default function App5() {
         </NavLink>
       </nav>
       <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />}>
-            <Route path="collections" element={<CollectionsPage />} />
-            <Route path="contacts" element={<ContactsPage />} />
-          </Route>
-          <Route path="/products" element={<ProductsPage />} />
-          <Route path="/products/:productId" element={<ProductsDetailsPage />}/>
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        <Suspense>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />}>
+              <Route path="collections" element={<CollectionsPage />} />
+              <Route path="contacts" element={<ContactsPage />} />
+            </Route>
+            <Route path="/products" element={<ProductsPage />} />
+            <Route
+              path="/products/:productId"
+              element={<ProductsDetailsPage />}
+            />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
       </Layout>
     </div>
   );
