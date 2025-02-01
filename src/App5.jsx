@@ -36,11 +36,7 @@ export default function App5() {
             <Route path="contacts" element={<ContactsPage />} />
           </Route>
           <Route path="/products" element={<ProductsPage />} />
-          <Route
-            path="/products/:productId"
-            element={<ProductsDetailsPage />}
-          />
-
+          <Route path="/products/:productId" element={<ProductsDetailsPage />}/>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>

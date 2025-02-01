@@ -12,7 +12,9 @@ const ProductsDetailsPage = () => {
     // console.log("nameId2", productNameId);
     // замінено однією строчкою на метод find
     const productNameId = products.find((product) => product.id === productId);
-    // console.log("productNameId", productNameId);
+  // console.log("productNameId", productNameId);
+  
+  
     return (
       <div>
         <h2>{productNameId.name}</h2>

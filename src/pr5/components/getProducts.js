@@ -54,6 +54,21 @@ const products = [
   },
 ];
 
+// const API_KEY = `c70ac1a23ae822ab5b2881638ada5783`;
+
+// // перевірка сторінки API
+// const url = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
+
+// const options = {
+//   headers: {
+//     // Замість api_read_access_token вставте свій токен
+//     Authorization:
+//       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNzBhYzFhMjNhZTgyMmFiNWIyODgxNjM4YWRhNTc4MyIsIm5iZiI6MTcyNTg3NzE2My45NTY3MzEsInN1YiI6IjY2ZGQ0Mjc2NDBmYmMxMDk4YjM4YmM5MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.pQmKKpdO-Y0EqH4ywzQg9OjejwsSrLYwHE46q3YkgKM",
+//   },
+// };
+
+
+
 export default function getProducts() {
   return products;
 }
