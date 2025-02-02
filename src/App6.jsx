@@ -28,13 +28,17 @@ const filterParamsContact = addContact.filter((contact) =>
 );
 
 const handleSubmit = (value, actions) => {
-         console.log("value", value);
+        //  console.log("value", value);
          value=[...addContact, value]
           setAddContact(value)
         actions.resetForm();
       };
 
- 
+    const handleDelete = (id) => {
+            const contactDelete = addContact.filter((contact) => id !== contact.id);
+        setAddContact(contactDelete);
+    }
+
 return (
   <div>
     <h1>Phonebook</h1>
@@ -43,7 +47,7 @@ return (
       value={productName}
       handleChange={(value) => upDateSearchParams("name", value)}
     />
-    <ContactList contacts={filterParamsContact} />
+    <ContactList contacts={filterParamsContact} onDelete={handleDelete} />
   </div>
 );
 }
