@@ -1,27 +1,26 @@
-.container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-
 .contactContainer{
+    width: 100%;
     display: flex;
     flex-direction: row; 
     align-items: center;
+    justify-content: space-around;
     border: 2px solid blueviolet;
     border-radius: 6px;
-    padding: 8px;
     background-color: aliceblue;
 }
 
 .list{
-    margin: 0;padding: 0;
+    margin: 0;
+    padding: 0;
     list-style-type: none;
 }
 
 p{
     margin: 0;
+}
+
+.textName{
+    font-size: 12px;
 }
 
 .button{

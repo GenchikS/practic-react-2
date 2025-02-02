@@ -1,0 +1,31 @@
+.container{
+    width: 220px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+.name, .surname, .number{
+    border: 2px solid blueviolet;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    padding: 6px;
+    background-color: aliceblue;
+}
+
+.label{
+    font-size: 12px;
+    color: rgb(69, 61, 61);
+}
+
+.button{
+    width: 80px;
+    height: 24px;
+    margin: 0 auto;
+    margin-top: 16px;
+    background-color: rgb(180, 180, 240);
+    border: 2px solid rgb(79, 79, 246);
+    border-radius: 5px;
+}

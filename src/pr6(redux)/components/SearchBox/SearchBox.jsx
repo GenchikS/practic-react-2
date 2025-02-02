@@ -2,9 +2,9 @@ import css from "./SearchBox.module.css"
 // import { useState } from "react"
 
 export default function SearchBox({ value, handleChange }) {
-    console.log("value", value)
+    // console.log("value", value)
   return (
-    <div>
+    <div className={css.container}>
       <p className={css.findContact}>Find contacts by name</p>
       <input
         type="text"
