@@ -6,7 +6,8 @@ import ReactDOM from "react-dom/client";
 // import App5 from './App5.jsx';
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import App6 from "./App6.jsx";
+import { App6lms } from "./App6lms.jsx";
+// import App6 from "./App6.jsx";
 // Pr4 створення контексту, та передача його через Provider
 // const myContext = createContext();
 
@@ -32,8 +33,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     {/* <BrowserRouter>
       <App5 />
     </BrowserRouter> */}
-    <BrowserRouter>
+    {/* <BrowserRouter>
       <App6 />
+    </BrowserRouter> */}
+    <BrowserRouter>
+      <App6lms/>
     </BrowserRouter>
   </React.StrictMode>
 );

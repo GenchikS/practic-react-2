@@ -6,50 +6,60 @@ import contactDefault from "./pr6(redux)/contactDefault.js";
 import { useSearchParams } from "react-router-dom";
 
 const App6 = () => {
-    const contacts = contactDefault();
-    // console.log("contact", contacts);
-    const [addContact, setAddContact] = useState(contacts);
-    
-const [searchInputValue, setSearchInputValue] = useSearchParams();
-const productName = searchInputValue.get("name") ?? "";    
+  const contacts = contactDefault();
+  // console.log("contact", contacts);
 
-    const upDateSearchParams = (key, value) => {
-        const upDateParams = new URLSearchParams(searchInputValue);
-        if (value !== "") {
-            upDateParams.set(key, value);
-        } else {
-            upDateParams.delete(key);
-        }    
-        setSearchInputValue(upDateParams)
+  //  зчитування з LS в стан. Якщо там пусто, то по дефолту рендереться contacts
+  const [allContact, setAddContact] = useState(() => {
+    const contactGetLocal = window.localStorage.getItem("save-contact");
+    const contactLocalParse = JSON.parse(contactGetLocal);
+    return contactLocalParse !== null ? contactLocalParse : contacts;
+  });
+
+  const [searchInputValue, setSearchInputValue] = useSearchParams();
+  const productName = searchInputValue.get("name") ?? "";
+
+  const upDateSearchParams = (key, value) => {
+    const upDateParams = new URLSearchParams(searchInputValue);
+    if (value !== "") {
+      upDateParams.set(key, value);
+    } else {
+      upDateParams.delete(key);
     }
+    setSearchInputValue(upDateParams);
+  };
 
-const filterParamsContact = addContact.filter((contact) =>
-  contact.name.toLowerCase().includes(productName.toLowerCase())
-);
+  const filterParamsContact = allContact.filter((contact) =>
+    contact.name.toLowerCase().includes(productName.toLowerCase())
+  );
 
-const handleSubmit = (value, actions) => {
-        //  console.log("value", value);
-         value=[...addContact, value]
-          setAddContact(value)
-        actions.resetForm();
-      };
+  const handleSubmit = (value, actions) => {
+    value = [...allContact, value];
+    setAddContact(value);
+    actions.resetForm();
+  };
 
-    const handleDelete = (id) => {
-            const contactDelete = addContact.filter((contact) => id !== contact.id);
-        setAddContact(contactDelete);
-    }
+  const handleDelete = (id) => {
+    const contactDelete = allContact.filter((contact) => id !== contact.id);
+    setAddContact(contactDelete);
+  };
 
-return (
-  <div>
-    <h1>Phonebook</h1>
-    <ContactForm onSubmit={handleSubmit} />
-    <SearchBox
-      value={productName}
-      handleChange={(value) => upDateSearchParams("name", value)}
-    />
-    <ContactList contacts={filterParamsContact} onDelete={handleDelete} />
-  </div>
-);
+  //  запис в LS всіх контактів зі змінами та слідкування за зміною в масиві контактів [allContact]
+  useEffect(() => {
+    window.localStorage.setItem("save-contact", JSON.stringify(allContact));
+  }, [allContact]);
+
+  return (
+    <div>
+      <h1>Phonebook</h1>
+      <ContactForm onSubmit={handleSubmit} />
+      <SearchBox
+        value={productName}
+        handleChange={(value) => upDateSearchParams("name", value)}
+      />
+      <ContactList contacts={filterParamsContact} onDelete={handleDelete} />
+    </div>
+  );
 }
 
 export default App6;
