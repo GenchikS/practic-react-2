@@ -26,3 +26,5 @@ const rootReducer = (state = initialState, action) => {
 export const store = configureStore({
   reducer: rootReducer,
 });
+
+//  5. наступне в файлі StatusFilter.jsx
