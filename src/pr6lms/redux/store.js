@@ -1,5 +1,6 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit"
 
+//  3. Створили початковий дефолтний стан
 const initialState = {
   tasks: {
     items: [
@@ -15,10 +16,13 @@ const initialState = {
   },
 };
 
+//  2. Створили rootReducer, додали state та action, повертаємо state
+//  4. Дали початковому стану дефолтне значення
 const rootReducer = (state = initialState, action) => {
   return state;
-};
+}
 
+// 1. Створили store та додали reducer: rootReducer
 export const store = configureStore({
   reducer: rootReducer,
 });
