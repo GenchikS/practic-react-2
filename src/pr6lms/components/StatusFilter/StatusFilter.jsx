@@ -12,7 +12,7 @@ export const StatusFilter = () => {
   // console.log("filter", filter);
   const dispatch = useDispatch();
   const handleStatusFilter = (filter) => {
-    console.log("filter", filter);
+    // console.log("filter", filter);
     dispatch(statusFilter(filter));
   }
 

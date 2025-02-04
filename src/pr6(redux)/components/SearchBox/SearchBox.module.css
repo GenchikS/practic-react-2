@@ -1,9 +1,21 @@
 .container{
+    display: flex;
+    flex-direction: row;
     margin-top: 40px;
+
 }
 
 .findContact{
     font-size: 12px;
     margin: 0;
+}
+
+.containerOptoins{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    gap: 12px;
+    align-items: center;
+    margin-left: 124px;
 }
 

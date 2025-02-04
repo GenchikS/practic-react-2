@@ -8,8 +8,9 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 // import { App6lms } from "./App6lms.jsx";
 import { Provider } from "react-redux";
-import { store } from "./pr6lms/redux/store.js";
+// import { store } from "./pr6lms/redux/store.js";
 import App6 from "./App6.jsx";
+import { store } from "./pr6(redux)/redux/store.js";
 // Pr4 створення контексту, та передача його через Provider
 // const myContext = createContext();
 
