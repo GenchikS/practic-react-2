@@ -6,11 +6,12 @@ import { useSelector } from "react-redux";
 
 // 12. створення ф-ції фільтрації за статусом
 const getVisibleTasks = (tasks, statusFiltersTaskList) => {
+  // console.log("statusFiltersTaskList", statusFiltersTaskList);
   switch (statusFiltersTaskList) {
     case `active`:
-      return tasks.filters(task => !task.completed);
+      return tasks.filter(task => !task.completed);
     case `completed`:
-      return tasks.filters(task => task.completed);
+      return tasks.filter(task => task.completed);
     default:
       return tasks;
   }
@@ -40,5 +41,5 @@ export const TaskList = () => {
 };
 
 
-//  7. перереднє в файлі StatusFilter.jsx
+//  7. попереднє в файлі StatusFilter.jsx
 //  14. наступне в файлі TaskCounter.jsx

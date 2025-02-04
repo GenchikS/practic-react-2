@@ -23,6 +23,14 @@ p{
     font-size: 12px;
 }
 
+.textNameOptions{
+    width: 40px;
+    background-color: rgb(170, 208, 168);
+    border: 2px solid rgb(56, 75, 185);
+    border-radius: 3px;
+    text-align: center;
+}
+
 .button{
     width: 80px;
     height: 24px;

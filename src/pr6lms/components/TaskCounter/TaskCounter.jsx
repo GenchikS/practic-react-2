@@ -29,5 +29,5 @@ export const TaskCounter = () => {
 };
 
 
-//  13. перереднє в файлі TaskList.jsx
+//  13. попереднє в файлі TaskList.jsx
 //  17. наступне в файлі actions.js (створення actions)
