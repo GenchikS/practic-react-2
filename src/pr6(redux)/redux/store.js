@@ -28,15 +28,35 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "task/statusFilter":
-            return {
-                ...state,
-                filters: {
-                    status: action.payload,
-                }
-            }
-        default:
-            return state;
+      case "task/statusFilter":
+        return {
+          ...state,
+          filters: {
+            status: action.payload,
+          },
+        };
+      case "task/deleteContact":
+        return {
+          ...state,
+            tasks: {
+                items: state.tasks.items.filter((item) => item.id !== action.payload),
+            },
+        };
+      case "task/searchContact":
+        return {
+          ...state,
+          tasks: {
+            items: initialState.tasks.items.filter((item) => {
+              if (
+                item.name.toLowerCase().includes(action.payload)
+              ) {
+                return item;
+              }
+            }),
+          },
+        };
+      default:
+        return state;
     }
 };
 

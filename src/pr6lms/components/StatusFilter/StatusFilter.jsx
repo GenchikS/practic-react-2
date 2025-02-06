@@ -4,11 +4,11 @@ import css from "./StatusFilter.module.css";
 import { useDispatch } from "react-redux";
 
 //  5. Початок в файлі Store.js. Імпортуємо useSelector для подальшої підписки на store (redux)
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 export const StatusFilter = () => {
   // 6. Отримуємо значення фільтру (filters) із стану redux, який ми оголосили в store.js (initialState.filters: "all")
-  const filter = useSelector((state) => state.filters.status);
+  // const filter = useSelector((state) => state.filters.status);
   // console.log("filter", filter);
   const dispatch = useDispatch();
   const handleStatusFilter = (filter) => {

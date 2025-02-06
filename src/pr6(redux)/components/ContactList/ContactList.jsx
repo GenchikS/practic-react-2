@@ -1,7 +1,6 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Contact from "../Contact/Contact.jsx";
 import css from "./ContactList.module.css"
-
 
 const getFilterStatusFunction = (tasks, filterStatusList) => {
   // console.log("filterStatusList", filterStatusList);
@@ -9,6 +8,8 @@ const getFilterStatusFunction = (tasks, filterStatusList) => {
     case `good`:
       return tasks.filter((task) => task.options === filterStatusList);
     case `neutral`:
+      return tasks.filter((task) => task.options === filterStatusList);
+    case `bad`:
       return tasks.filter((task) => task.options === filterStatusList);
     default:
       return tasks;

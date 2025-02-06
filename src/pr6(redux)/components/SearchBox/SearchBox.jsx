@@ -1,14 +1,19 @@
-import { statusFilter } from "../../redux/actions.js";
+import { searchContact, statusFilter } from "../../redux/actions.js";
 import { Button } from "./Button/Button.jsx";
 import css from "./SearchBox.module.css"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 
-export default function SearchBox({ value, handleChange }) {
+export default function SearchBox() {
+  const [valueSearch, setValueSearch] = useState("")
   // console.log("value", value)
-  const filter = useSelector((state) => state.filters.status);
-    // console.log("filter", filter);
-
   const dispatch = useDispatch();
+
+  const handleChange = (env) => {
+    // console.log("env", env);
+    setValueSearch(env)
+dispatch(searchContact(env.toLowerCase()));
+  }
  
   const handleStatusFilter = (filter) => {
     // console.log("filter", filter);
@@ -17,13 +22,14 @@ export default function SearchBox({ value, handleChange }) {
   return (
     <div className={css.container}>
       <div>
+        <h3>SearchBox</h3>
         <p className={css.findContact}>Find contacts by name</p>
         <input
           type="text"
-          value={value}
+          value={valueSearch}
           onChange={(e) => handleChange(e.target.value)}
         />
-        <p className={css.textValue}>Введений пошук: {value}</p>
+        <p className={css.textValue}>Введений пошук: {valueSearch}</p>
       </div>
       <div className={css.containerOptoins}>
         <Button onClick={() => handleStatusFilter("all")}>All</Button>
