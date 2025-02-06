@@ -1,9 +1,16 @@
-import { useDispatch, useSelector } from "react-redux";
+import {useSelector } from "react-redux";
 import Contact from "../Contact/Contact.jsx";
 import css from "./ContactList.module.css"
 
 const getFilterStatusFunction = (tasks, filterStatusList) => {
-  // console.log("filterStatusList", filterStatusList);
+  const contactGetLocal = window.localStorage.getItem("save-contact");
+  const contactLocalParse = JSON.parse(contactGetLocal);
+  // console.log("contactLocalParse", contactLocalParse);
+  filterStatusList =
+    filterStatusList !== null ? contactLocalParse : filterStatusList;
+
+  
+  console.log("filterStatusList", filterStatusList);
   switch (filterStatusList) {
     case `good`:
       return tasks.filter((task) => task.options === filterStatusList);
@@ -14,13 +21,14 @@ const getFilterStatusFunction = (tasks, filterStatusList) => {
     default:
       return tasks;
   }
-  
 };
 
 
 export default function ContactList() {
   const tasks = useSelector((state) => state.tasks.items);
-  const filterStatusList = useSelector((state)=> state.filters.status)
+  // запис в LS всіх контактів [tasks]
+  window.localStorage.setItem("save-contact", JSON.stringify(tasks));
+  const filterStatusList = useSelector((state) => state.filters.status);
   // console.log("tasks", tasks);
   // console.log("filterStatusList", filterStatusList);
   const newContactsList = getFilterStatusFunction(tasks, filterStatusList);

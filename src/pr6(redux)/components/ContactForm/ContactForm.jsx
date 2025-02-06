@@ -1,6 +1,8 @@
 import { Field, Form, Formik } from "formik";
 import css from "./ContactForm.module.css"
 import { useId } from "react";
+import { useDispatch } from "react-redux";
+import { addContact } from "../../redux/actions.js";
 
 
 const initialValues = {
@@ -11,17 +13,24 @@ const initialValues = {
     level: "good"
 }
 
-export default function ContactForm({ onSubmit }) {
+export default function ContactForm() {
+ const dispatch = useDispatch();
+  const handleSubmit = (value, actions) => {
+    console.log("value", value);
+dispatch(addContact(value));
+       actions.resetForm();
+     };
   const nameFieldId = useId();
   const surnameFieldId = useId();
   const numberFieldId = useId();
   const messageFieldId = useId();
   const optionFieldId = useId();
+  
 
   return (
     <div className={css.container}>
       <h3>ContactForm</h3>
-      <Formik initialValues={initialValues} onSubmit={onSubmit}>
+      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form className={css.form}>
           <label htmlFor={nameFieldId} className={css.label}>
             name
@@ -50,6 +59,19 @@ export default function ContactForm({ onSubmit }) {
             id={numberFieldId}
             className={css.number}
           />
+          <label htmlFor={optionFieldId} className={css.label}>
+            Options
+          </label>
+          <Field
+            as="select"
+            name="options"
+            id={optionFieldId}
+            className={css.number}
+          >
+            <option value="good">Good</option>
+            <option value="neutral">Neutral</option>
+            <option value="bad">Bad</option>
+          </Field>
           <label htmlFor={messageFieldId} className={css.label}>
             Message
           </label>
@@ -60,14 +82,6 @@ export default function ContactForm({ onSubmit }) {
             id={messageFieldId}
             className={css.number}
           />
-          <label htmlFor={optionFieldId} className={css.label}>
-            Options
-          </label>
-          <Field as="select" name="level" id={optionFieldId}>
-            <option value="good">Good</option>
-            <option value="neutral">Neutral</option>
-            <option value="bad">Bad</option>
-          </Field>
           <button type="submit" className={css.button}>
             Submit
           </button>

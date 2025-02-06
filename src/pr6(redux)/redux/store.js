@@ -55,6 +55,13 @@ const rootReducer = (state = initialState, action) => {
             }),
           },
         };
+      case "task/addContact":
+        return {
+          ...state,
+          tasks: {
+            items: [...state.tasks.items, action.payload]
+          }
+        }
       default:
         return state;
     }
