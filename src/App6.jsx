@@ -9,7 +9,7 @@ const App6 = () => {
   // const contacts = contactDefault();
   // console.log("contact", contacts);
 
-  //  зчитування з LS в стан. Якщо там пусто, то по дефолту рендереться contacts
+  // //  зчитування з LS в стан. Якщо там пусто, то по дефолту рендереться contacts
   // const [allContact, setAddContact] = useState((contacts)=>{ 
   //   const contactGetLocal = window.localStorage.getItem("save-contact");
   //   const contactLocalParse = JSON.parse(contactGetLocal);
