@@ -1,0 +1,13 @@
+p{
+    margin: 0;
+}
+
+/* .containerContact{
+    
+} */
+
+.location{
+    border-radius: 4px;
+    margin-top: 8px;
+    background-color: rgb(152, 206, 140);
+}

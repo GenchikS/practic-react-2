@@ -16,8 +16,9 @@ const initialState = {
   },
 };
 
-//  2. Створили rootReducer, додали state та action, повертаємо state
+
 //  4. Дали початковому стану дефолтне значення
+//  2. Створили rootReducer, додали state та action, повертаємо state
 const rootReducer = (state = initialState, action) => {
   //  після створення всіх екшенів, необхідно змінити корневий rootReducer та додати switch з вмістом.
   //  тепер в store type: "task/addTask" добавляється action.payload (те що додаємо в addTask). Беремо розпилюємо state та добавляємо нові дані в tasks.
