@@ -16,8 +16,7 @@ export const getFilterSelectorContacts = (contacts, city) => {
 
 
 export const getFilterTransmissionContacts = (filterContacts, transmission) => {
-  console.log("filterContacts", filterContacts);
-  console.log("transmission2", transmission);
+// console.log("transmission", transmission);
   switch (transmission) {
     case `manual`:
       return filterContacts.filter(

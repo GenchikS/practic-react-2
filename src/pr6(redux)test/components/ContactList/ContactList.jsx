@@ -7,11 +7,11 @@ import { getFilterSelectorContacts, getFilterTransmissionContacts } from "../Sel
 
 export default function ContactList() {
   const [contacts, setContact] = useState([]);
-
- const city = useSelector((state) => state.filters.city);
-  console.log("city", city);
+  const city = useSelector((state) => state.filters.city);
+ // console.log("city", city);
+  
   const transmission = useSelector((state) => state.filters.transmission)
-  console.log("transmission1", transmission);
+  // console.log("transmission1", transmission);
 
   useEffect(() => {
     async function featchData() {
@@ -23,10 +23,10 @@ export default function ContactList() {
   // console.log(contacts);
 
   // 9.  Створюємо ф-цію фшльтрації за містом
-  const filterContacts = getFilterSelectorContacts(contacts, city)
+  const filterContacts = getFilterSelectorContacts(contacts, city);
   // console.log("filterContacts", filterContacts);
 
-  const filterTransmission = getFilterTransmissionContacts(filterContacts, transmission);
+  const filterTransmission = getFilterTransmissionContacts(filterContacts,transmission);
   // console.log("filterTransmission", filterTransmission);
   return (
     <ul className={css.container}>
