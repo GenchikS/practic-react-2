@@ -6,6 +6,7 @@ export default function Contact({ item }) {
     <div className={css.containerContact}>
       <p>{item.name}</p>
       <p className={css.location}>{item.location}</p>
+      <p className={css.transmission}>{item.transmission}</p>
     </div>
   );
 }

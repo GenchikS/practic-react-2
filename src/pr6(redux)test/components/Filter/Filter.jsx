@@ -1,8 +1,12 @@
-import Select from "../Select/Select.jsx";
+import css from "./Filter.module.css"
+import SelectCity from "../Select/SelectCity.jsx";
+import SelectTransmission from "../Select/SelectTransmission.jsx";
 
 export default function Filter() {
-    return(
-    <div>
-        <Select/>
-    </div>)
+    return (
+      <div className={css.container}>
+        <SelectCity />
+        <SelectTransmission />
+      </div>
+    );
 }
