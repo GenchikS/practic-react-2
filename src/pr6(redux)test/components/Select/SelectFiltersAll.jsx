@@ -16,9 +16,11 @@ export const getFilterSelectorContacts = (contacts, city) => {
 
 
 export const getFilterTransmissionContacts = (filterContacts, transmission) => {
-// console.log("transmission", transmission);
+  console.log("filterContacts", filterContacts);
   switch (transmission) {
-    case `manual`:
+    case `all`:
+      return filterContacts.map((contact) => contact);
+    case `${transmission}`:
       return filterContacts.filter(
         (contact) => contact.transmission === transmission
       );

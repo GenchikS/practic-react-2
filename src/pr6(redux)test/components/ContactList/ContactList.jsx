@@ -26,7 +26,7 @@ export default function ContactList() {
   const filterContacts = getFilterSelectorContacts(contacts, city);
   // console.log("filterContacts", filterContacts);
 
-  const filterTransmission = getFilterTransmissionContacts(filterContacts,transmission);
+  const filterTransmission = getFilterTransmissionContacts(filterContacts, transmission);
   // console.log("filterTransmission", filterTransmission);
   return (
     <ul className={css.container}>
