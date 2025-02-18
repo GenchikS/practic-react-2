@@ -7,7 +7,7 @@ const initialState = {
     },
     filters: {
         city: "all",
-        status: "all"
+        transmission: "all"
     }
 }
 
@@ -19,21 +19,28 @@ const initialState = {
 // 2. Прописали rooteRedecer
 const rootReducer = (state=initialState, action) => {
     switch (action.type) {
-      case "task/statusSelect":
+      case "task/citySelect":
         return {
           ...state,
           filters: {
             city: action.payload,
           },
         };
+      case "task/transmission":
+        return {
+          ...state,
+          filters: {
+            transmission: action.payload,
+          },
+        };
       case "task/contacts":
-            return {
-              ...state,
-              auto: {
-                items: console.log(action.payload),
-                // items: action.payload,
-              },
-            };
+        return {
+          ...state,
+          auto: {
+            // items: console.log(action.payload),
+            items: action.payload,
+          },
+        };
       default:
         return state;
     }

@@ -13,3 +13,17 @@ export const getFilterSelectorContacts = (contacts, city) => {
       return contacts;
   }
 };
+
+
+export const getFilterTransmissionContacts = (filterContacts, transmission) => {
+  console.log("filterContacts", filterContacts);
+  console.log("transmission2", transmission);
+  switch (transmission) {
+    case `manual`:
+      return filterContacts.filter(
+        (contact) => contact.transmission === transmission
+      );
+    default:
+      return filterContacts;
+  }
+};

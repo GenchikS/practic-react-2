@@ -1,8 +1,8 @@
-import css from "./Select.module.css"
+import css from "./SelectCity.module.css"
 import { useId, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { statusSelect } from "../../redux/action.js";
+import { citySelect } from "../../redux/action.js";
 
 export default function Select() {
   const selectId = useId();
@@ -24,9 +24,10 @@ export default function Select() {
   const handleCity = (select) => {
     // console.log(select);
     setCity(select)
-    dispatch(statusSelect(select));
+    dispatch(citySelect(select));
   };
 
+  
   return (
     <div className={css.container}>
       <label htmlFor={selectId} className={css.label}>
