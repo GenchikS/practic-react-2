@@ -10,10 +10,10 @@ export default function ContactList() {
   const city = useSelector((state) => state.filters.city);
  // console.log("city", city);
   
-  const transmission = useSelector((state) => state.filters.transmission)
-  // console.log("transmission1", transmission);
+  const transmission = useSelector((state) => state.filters.transmission);
+  // console.log("transmission", transmission);
 
-  useEffect(() => {
+   useEffect(() => {
     async function featchData() {
       const data = await contactsApi();
       setContact(data.items);
