@@ -23,7 +23,9 @@ const rootReducer = (state=initialState, action) => {
         return {
           ...state,
           filters: {
+            // city: console.log(state),
             city: action.payload,
+            transmission: state.filters.transmission,
           },
         };
       case "task/transmission":
@@ -31,16 +33,17 @@ const rootReducer = (state=initialState, action) => {
           ...state,
           filters: {
             transmission: action.payload,
+            city: state.filters.city,
           },
         };
-      case "task/contacts":
-        return {
-          ...state,
-          auto: {
-            // items: console.log(action.payload),
-            items: action.payload,
-          },
-        };
+      // case "task/contacts":
+      //   return {
+      //     ...state,
+      //     auto: {
+      //       // items: console.log(action.payload),
+      //       items: action.payload,
+      //     },
+      //   };
       default:
         return state;
     }

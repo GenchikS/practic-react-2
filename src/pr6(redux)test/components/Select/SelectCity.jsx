@@ -8,19 +8,15 @@ export default function Select() {
   const selectId = useId();
 
   const [city, setCity] = useState(
-    // відразу дістаємо стан зі state
+    // 4. Прописуємо в main Provider з пропсом store зі шляхом до store
+    // 5. Можемо діставати стан зі state через useSelector
     useSelector((state) => state.filters.city)
   );
   // console.log(city);
   // 7. Створюємо useDispatch та прописуємо стан за defautl
   const dispatch = useDispatch();
 
-  // 4. Прописуємо в main Provider з пропсом store зі шляхом до store
-  // 5. Можемо діставати стан зі state через useSelector
-  // const city = useSelector((state) => state.filters.city);
-  // console.log("city", city);
-
-  // 6. Замінюємо місто в стані useState (setCity - в select) на dispatch
+    // 6. Замінюємо місто в стані useState (setCity - в select) на dispatch
   const handleCity = (select) => {
     // console.log(select);
     setCity(select)
