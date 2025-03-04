@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { getFilterEngine, getFilterSelectorContacts, getFilterTransmissionContacts } from "../Select/SelectFiltersAll.jsx";
 import NotFound from "../NotFound/NotFound.jsx";
 
+
 export default function ContactList() {
   const [contacts, setContact] = useState([]);
   const city = useSelector((state) => state.filters.city);
@@ -14,11 +15,12 @@ export default function ContactList() {
   const transmission = useSelector((state) => state.filters.transmission);
   // console.log("transmission", transmission);
 
-  const engine = useSelector((state)=> state.filters.engine)
+  const engine = useSelector((state) => state.filters.engine);
 
-   useEffect(() => {
+    useEffect(() => {
     async function featchData() {
       const data = await contactsApi();
+      
       setContact(data.items);
     }
     featchData();
@@ -33,17 +35,23 @@ export default function ContactList() {
   // console.log("filterTransmission", filterTransmission);
 
   const filterEngine = getFilterEngine(filterTransmission, engine);
-// console.log("filterEngine", filterEngine.length);
+  // console.log("filterEngine", filterEngine);
   
-  return (
-    <ul className={css.container}>
-      {/* 10.  Змінюємо contacts на відфільтрований масив filterContacts */}
-      {/* використано  умовний рендеренг*/}
-      {filterEngine.length ? filterEngine.map((item) => (
-        <li key={item.id} className={css.list}>
-          <Contact item={item} />
-        </li>
-      )) : <NotFound/>}
-    </ul>
-  );
+     return (
+      <ul className={css.container}>
+        {/* 10.  Змінюємо contacts на відфільтрований масив filterContacts */}
+        {/* використано  умовний рендеренг*/}
+        {filterEngine.length ? (
+          filterEngine.map((item) => (
+            <li key={item.id} className={css.list}>
+              <Contact item={item} />
+            </li>
+          ))
+        ) : (
+          <NotFound />
+        )}
+      </ul>
+    );
 }
+
+

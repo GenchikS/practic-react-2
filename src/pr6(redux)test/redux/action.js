@@ -4,3 +4,4 @@ import { createAction } from "@reduxjs/toolkit";
 export const citySelect = createAction("task/citySelect")
 export const transmissionSelect = createAction("task/transmission");
 export const engineSelect = createAction("task/engine");
+// export const arrayResult = createAction("task/array");

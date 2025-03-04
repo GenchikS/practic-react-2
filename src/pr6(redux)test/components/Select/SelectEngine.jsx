@@ -4,7 +4,8 @@ import { useId, useState } from "react";
 import { engineSelect } from "../../redux/action.js";
 
 export default function SelectEngine() {
-    const [engine, setEngine] = useState("all")
+  const [engine, setEngine] = useState("all");
+
   const selectId = useId();
   const dispatch = useDispatch();
   const handleEngine = (select) => {
@@ -12,6 +13,8 @@ export default function SelectEngine() {
     setEngine(select);
     dispatch(engineSelect(select));
   }
+
+  
     return (
       <div className={css.container}>
         <label htmlFor={selectId} className={css.label}>

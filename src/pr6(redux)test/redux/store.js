@@ -49,6 +49,10 @@ const rootReducer = (state=initialState, action) => {
             transmission: state.filters.transmission,
           },
         };
+      // case "task/array":
+      //   return {
+      //     state,
+      //   };
       default:
         return state;
     }
