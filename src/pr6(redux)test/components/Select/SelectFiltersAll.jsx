@@ -28,3 +28,16 @@ export const getFilterTransmissionContacts = (filterContacts, transmission) => {
       return filterContacts;
   }
 };
+
+export const getFilterEngine = (filterTransmission, engine) => {
+  // console.log("filterTransmission", filterTransmission);
+  // console.log("engine", engine);
+  switch (engine) {
+    case "all":
+      return filterTransmission.map((contact) => contact);
+    case `${engine}`:
+      return filterTransmission.filter((contact) => contact.engine === engine);
+    default:
+      return filterTransmission;
+  }
+};

@@ -7,6 +7,7 @@ export default function Contact({ item }) {
       <p>{item.name}</p>
       <p className={css.location}>{item.location}</p>
       <p className={css.transmission}>{item.transmission}</p>
+      <p className={css.engine}>{item.engine}</p>
     </div>
   );
 }
