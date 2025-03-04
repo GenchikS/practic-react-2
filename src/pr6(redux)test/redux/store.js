@@ -12,11 +12,6 @@ const initialState = {
     }
 }
 
-
-
-
-
-
 // 2. Прописали rooteRedecer
 const rootReducer = (state=initialState, action) => {
     switch (action.type) {
@@ -49,10 +44,6 @@ const rootReducer = (state=initialState, action) => {
             transmission: state.filters.transmission,
           },
         };
-      // case "task/array":
-      //   return {
-      //     state,
-      //   };
       default:
         return state;
     }

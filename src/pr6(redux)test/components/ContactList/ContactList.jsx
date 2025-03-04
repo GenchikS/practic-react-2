@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import { getFilterEngine, getFilterSelectorContacts, getFilterTransmissionContacts } from "../Select/SelectFiltersAll.jsx";
 import NotFound from "../NotFound/NotFound.jsx";
 
-
 export default function ContactList() {
   const [contacts, setContact] = useState([]);
   const city = useSelector((state) => state.filters.city);
@@ -16,8 +15,8 @@ export default function ContactList() {
   // console.log("transmission", transmission);
 
   const engine = useSelector((state) => state.filters.engine);
-
-    useEffect(() => {
+  
+  useEffect(() => {
     async function featchData() {
       const data = await contactsApi();
       
@@ -36,8 +35,8 @@ export default function ContactList() {
 
   const filterEngine = getFilterEngine(filterTransmission, engine);
   // console.log("filterEngine", filterEngine);
-  
-     return (
+
+   return (
       <ul className={css.container}>
         {/* 10.  Змінюємо contacts на відфільтрований масив filterContacts */}
         {/* використано  умовний рендеренг*/}
