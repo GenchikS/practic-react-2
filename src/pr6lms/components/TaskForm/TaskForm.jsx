@@ -3,7 +3,9 @@ import css from "./TaskForm.module.css"
 // 20. імпортуємо хук useDispatch
 import { useDispatch } from "react-redux";
 // 21. імпортуємо фабрику addTask
-import {addTask} from "../../redux/actions.js"
+// import {addTask} from "../../redux/actions.js"
+//  30. Оновлення імпорту addTask
+import { addTask } from "../../redux/tasksSlice.js";
 
 
 export const TaskForm = () => {
@@ -35,3 +37,6 @@ export const TaskForm = () => {
     </form>
   );
 };
+
+//  попереднє 16 в TaskCounter.jsx
+// наступне 23 в store.js

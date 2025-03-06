@@ -1,4 +1,6 @@
-import { statusFilter } from "../../redux/actions.js";
+// import { statusFilter } from "../../redux/actions.js";
+//  30. Оновлення імпорту statusFilter
+import { statusFilter } from "../../redux/filtersSlice.js";
 import { Button } from "../Button/Button";
 import css from "./StatusFilter.module.css";
 import { useDispatch } from "react-redux";

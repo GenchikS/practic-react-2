@@ -1,7 +1,10 @@
 import { MdClose } from "react-icons/md";
 import css from "./Task.module.css";
-import {deleteTask, toggleTask} from "../../redux/actions.js"
+// import {deleteTask, toggleTask} from "../../redux/actions.js"
+//  30. Оновлення імпорту deleteTask, toggleTask
+import { deleteTask, toggleTask } from "../../redux/tasksSlice.js";
 import { useDispatch } from "react-redux";
+
 
 export const Task = ({ task }) => {
   // console.log("task.id", task.id)
