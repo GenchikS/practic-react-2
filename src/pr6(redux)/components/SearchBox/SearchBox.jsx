@@ -1,4 +1,6 @@
-import { searchContact, statusFilter } from "../../redux/actions.js";
+import { statusFilter } from "../../redux/filtersSlice.js";
+import { searchContact } from "../../redux/tasksSlice.js";
+
 import { Button } from "./Button/Button.jsx";
 import css from "./SearchBox.module.css"
 import { useDispatch } from "react-redux";

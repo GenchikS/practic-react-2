@@ -2,7 +2,8 @@ import { Field, Form, Formik } from "formik";
 import css from "./ContactForm.module.css"
 import { useId } from "react";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/actions.js";
+// import { addContact } from "../../redux/actions.js";
+import { addContact } from "../../redux/tasksSlice.js";
 
 
 const initialValues = {
