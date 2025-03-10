@@ -39,3 +39,6 @@ export const Task = ({ task }) => {
     </div>
   );
 };
+
+
+//  31. наступне tasksSlice.js
