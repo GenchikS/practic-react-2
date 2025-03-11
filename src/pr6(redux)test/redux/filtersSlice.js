@@ -15,7 +15,7 @@ const slice = createSlice({
         //  12.1 Видаляємо шлях filrers: {}
         // filters: {
         city: action.payload,
-        // 12.2 Змінюємо шлях до даних стану
+        // 12.2 Змінюємо шлях стану
         //   transmission: state.filters.transmission,
         transmission: state.transmission,
         // transmission: console.log(state.transmission),
