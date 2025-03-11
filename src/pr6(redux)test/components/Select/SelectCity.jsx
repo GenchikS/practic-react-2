@@ -2,7 +2,8 @@ import css from "./SelectCity.module.css"
 import { useId, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { citySelect } from "../../redux/action.js";
+// import { citySelect } from "../../redux/action.js";
+import { citySelect } from "../../redux/filtersSlice.js"
 
 export default function Select() {
   const selectId = useId();
@@ -49,3 +50,6 @@ export default function Select() {
     </div>
   );
 }
+
+//  3. Попереднє в файлі store
+//  8. Наступне в файлі action

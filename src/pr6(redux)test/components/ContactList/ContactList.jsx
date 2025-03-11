@@ -9,7 +9,7 @@ import NotFound from "../NotFound/NotFound.jsx";
 export default function ContactList() {
   const [contacts, setContact] = useState([]);
   const city = useSelector((state) => state.filters.city);
- // console.log("city", city);
+//  console.log("city", city);
   
   const transmission = useSelector((state) => state.filters.transmission);
   // console.log("transmission", transmission);
@@ -53,4 +53,7 @@ export default function ContactList() {
     );
 }
 
+
+//  8. Попереднє в файлі action
+//  11. Наступне в файлі store (створення slice)
 

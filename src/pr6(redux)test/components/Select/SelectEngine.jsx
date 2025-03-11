@@ -1,7 +1,9 @@
 import { useDispatch } from "react-redux";
 import css from "./SelectEngine.module.css"
 import { useId, useState } from "react";
-import { engineSelect } from "../../redux/action.js";
+// import { engineSelect } from "../../redux/action.js";
+import { engineSelect } from "../../redux/filtersSlice.js";
+
 
 export default function SelectEngine() {
   const [engine, setEngine] = useState("all");
