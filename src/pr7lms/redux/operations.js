@@ -14,5 +14,5 @@ export const fetchTasks = () => async dispatch => {
 }
 
 
-// 3.  Попереднє в файлі tasksSlice
-//  Наступне в файлі 
+//  3.  Попереднє в файлі tasksSlice
+//  6.  Наступне в файлі App7lms
