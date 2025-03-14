@@ -26,13 +26,18 @@ axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers";
 //  9.  Наступне в файлі App7lms
 
 //  11.  Створення createAsyncThunk(). Доповнюємо файл fetchTasks
-export const fetchTasks = createAsyncThunk("tasks/fetchAll", async () => {
+//  14. Добавляємо thunkAPI в async (_, thunkAPI) для передачі в обробку помилки
+export const fetchTasks = createAsyncThunk("tasks/fetchAll", async (_, thunkAPI) => {
   try {
     const response = await axios.get("/");
     // console.log(response.data);
+    // 15.  При успішній опереції повертається проміс
     return response.data;
   } catch (err) {
-
+    //  16.  При помилці повертається проміс, який буде відхилений з текстом помилки
+    return thunkAPI.rejectWithValue(err.message)
   }
 });
 //  12.  Наступне в файлі tasksSlice
+
+//  13.  Попереднє в файлі tasksSlice
