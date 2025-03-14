@@ -10,7 +10,7 @@ const tasksSlice = createSlice({
         error: null
     },
     reducers: {
-        // 3.  Створюємо ф-ції та маячки
+        // 3.  Створюємо ф-ції та індекатор завантажень
         fetchInProgress(state) { state.isLoading = true},
         fetchSuccess(state, action) {state.isLoading = false, state.error = null, state.items = action.payload },
         fetchError(state, action){state.isLoading = false, state.error = action.payload}
