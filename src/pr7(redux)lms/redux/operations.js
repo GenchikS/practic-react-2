@@ -15,3 +15,36 @@ export const fetchTasks = createAsyncThunk(
     }
   }
 );
+
+
+// 3.  Створюємо ф-цію додавання завдань POST запит
+export const addTask = createAsyncThunk(
+  "tasks/addTask", 
+  async (text, thunkAPI) => {
+    try {
+      const response = await axios.post("/tasks", { text });
+      return response.data;
+    }
+    catch (e) {
+      return thunkAPI.rejectWithValue(e.message)
+    }
+    }
+)
+// 2.  Попереднє в файлі App7lms
+// 4.  Наступне в файлі TaskForm
+
+// 6.  Створюємо ф-цію видалення deleteTask
+export const deleteTask = createAsyncThunk(
+  "tasks/delete", 
+  async (taskId, thunkAPI) => {
+    try {
+      const response = await axios.delete(`/tasks/${ taskId }`);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message)
+    }
+  }
+)
+
+// 5.  Попереднє в файлі taskSlice
+// 7.  Наступне в файлі Task

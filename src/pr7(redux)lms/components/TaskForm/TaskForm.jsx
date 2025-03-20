@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { Button } from "../Button/Button";
 import css from "./TaskForm.module.css";
+import { addTask } from "../../redux/operations.js";
 
 export const TaskForm = () => {
   const dispatch = useDispatch();
@@ -8,6 +9,8 @@ export const TaskForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
+    // 4.  Діспатчимо введений текст в ф-цію addTask
+    dispatch(addTask(event.target.elements.text.value));
     form.reset();
   };
 
@@ -23,3 +26,6 @@ export const TaskForm = () => {
     </form>
   );
 };
+
+// 3.  Попереднє в файлі operations
+// 5.  Наступне в файлі taskSlice

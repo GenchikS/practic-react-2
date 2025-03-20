@@ -31,3 +31,6 @@ export default function App7lms() {
     </div>
   );
 }
+
+
+// 3.  Наступне в файлі operations
