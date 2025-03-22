@@ -48,3 +48,20 @@ export const deleteTask = createAsyncThunk(
 
 // 5.  Попереднє в файлі taskSlice
 // 7.  Наступне в файлі Task
+
+// 9.  Створюємо ф-цію фільтрації
+export const toggleCompleted = createAsyncThunk("tasks/toggleCompleted", async (task, thunkAPI) => {
+  try {
+    const response = await axios.put(`/tasks/${task.id}`, {
+      completed: !task.completed,
+    });
+    // console.log(task) і response.data одинакове
+    // console.log(response.data);
+    return response.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message)
+  }
+})
+
+// 8.  Попереднє в файлі taskSlice
+// 10.  Наступне в файлі Task

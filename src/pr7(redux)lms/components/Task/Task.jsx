@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { MdClose } from "react-icons/md";
 import css from "./Task.module.css";
-import { deleteTask } from "../../redux/operations.js";
+import { deleteTask, toggleCompleted } from "../../redux/operations.js";
 
 export const Task = ({ task }) => {
   const dispatch = useDispatch();
@@ -10,6 +10,10 @@ export const Task = ({ task }) => {
   const handleDelete = () => {
     dispatch(deleteTask(task.id));
   };
+  // 10.  Додаємо ф-цію handleToggle в input onChange={handleToggle}
+  const handleToggle = () => {
+    dispatch(toggleCompleted(task));
+  };
 
   return (
     <div className={css.wrapper}>
@@ -17,6 +21,7 @@ export const Task = ({ task }) => {
         type="checkbox"
         checked={task.completed}
         className={css.checkbox}
+        onChange={handleToggle}
       />
       <p className={css.text}>{task.text}</p>
       <button className={css.btn} onClick={handleDelete}>
@@ -28,3 +33,6 @@ export const Task = ({ task }) => {
 
 // 6.  Попереднє в файлі operations
 // 8.  Наступне в файлі taskSlice
+
+// 9.  Попереднє в файлі operations
+// 11.  Наступне в файлі taskSlice
