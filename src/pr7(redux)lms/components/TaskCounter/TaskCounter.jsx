@@ -1,8 +1,11 @@
 import { useSelector } from "react-redux";
 import css from "./TaskCounter.module.css";
+import { selectTask } from "../../redux/taskSlice.js";
 
 export const TaskCounter = () => {
-  const tasks = useSelector((state) => state.tasks.items);
+  //   17.  Змінюємо інлайн-ф-ції (state) => state.tasks.isLoading на селектори створені в слайсах
+  // const tasks = useSelector((state) => state.tasks.items);
+  const tasks = useSelector(selectTask);
 
   const count = tasks.reduce(
     (acc, task) => {
@@ -23,3 +26,7 @@ export const TaskCounter = () => {
     </div>
   );
 };
+
+
+//  16.  Попереднє в файлі taskSlice
+//  18.  Наступне в файлі statusFilter

@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { addTask, deleteTask, fetchTasks, toggleCompleted } from "./operations";
+import { useSelector } from "react-redux";
+import { selectStatusFilter } from "./filtersSlice.js";
 
 
 //  12.
@@ -80,15 +82,15 @@ const tasksSlice = createSlice({
       .addCase(deleteTask.rejected, handleRejected)
       // 11.  Дописуємо обробку екшенів доданих завдань deleteTask
       // .addCase(fetchTasks.pending, (state) => {
-      //   state.isLoading = true;
+      //  state.isLoading = true;
       // })
       // 12.
       .addCase(toggleCompleted.pending, handlePending)
       .addCase(toggleCompleted.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        //   перевірка action.payload.id
-        // console.log(action.payload.id);
+        //  перевірка action.payload.id
+        //  console.log(action.payload.id);
         //  робимо map масиву, якщо id збігаеться з action.payload.id - то в масив додається оновлене завдання. Якщо не збігається - то залишається старе
         state.items = state.items.map((item) =>
           item.id === action.payload.id ? action.payload : item
@@ -114,5 +116,35 @@ export default tasksSlice.reducer;
 //  10.  Попереднє в файлі Task
 //  12. Наступне в файлі taskSlice (скорочення коду редюсерів)
 //  обробник pending та rejected - одинакові для всіх редюсерів. Можемо прибрати дублювання коду винесенням їх в ф-цію
+
+
+//  13.  Додамо селектори для того, щоб були одні змінні за станами на весь файл
+export const selectTask = (state) => state.tasks.items;
+export const selectIsLoading = (state) => state.tasks.isLoading;
+export const selectError = (state) => state.tasks.error;
+//  14. Наступне в файлі filtersSlice
+
+//  19.  Пересемо логіку обчислень фільтру з файлу TaskList та створимо складний селектор (з обчиленням)
+export const selectGetVisibleTasks = state => {
+  //  забираємо з файлу TaskList змінні з викликом стану
+  const tasks = useSelector(selectTask);
+  // console.log("tasks", tasks);
+  const statusFilter = useSelector(selectStatusFilter);
+switch (statusFilter) {
+  case "active":
+    return tasks.filter((task) => !task.completed);
+  case "completed":
+    return tasks.filter((task) => task.completed);
+  default:
+    return tasks;
+}
+}
+
+//  18.  Попереднє в файлі StatusFilter
+//  20.  Наступне в файлі TaskList
+
+
+
+
 
 

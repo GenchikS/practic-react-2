@@ -5,20 +5,24 @@ import { TaskForm } from "./pr7(redux)lms/components/TaskForm/TaskForm.jsx";
 import { TaskList } from "./pr7(redux)lms/components/TaskList/TaskList.jsx";
 import { useEffect } from "react";
 import { fetchTasks } from "./pr7(redux)lms/redux/operations.js"
+import { selectError, selectIsLoading } from "./pr7(redux)lms/redux/taskSlice.js";
 
 
 
 export default function App7lms() {
   const dispatch = useDispatch();
 
-  // 2.  Добавляємо індикатори запитів з tasksSlice
-  const isLoading = useSelector((state) => state.tasks.isLoading);
-  const error = useSelector((state) => state.tasks.error);
+  //  2.  Добавляємо індикатори запитів з tasksSlice
+  //  15. Змінюємо інлайн-ф-ції (state) => state.tasks.isLoading на селектори створені в слайсах
+  // const isLoading = useSelector((state) => state.tasks.isLoading);
+  const isLoading = useSelector(selectIsLoading);
+  // const error = useSelector((state) => state.tasks.error);
+  const error = useSelector(selectError);
+
   // console.log("isL",isLoading);
   // console.log("er", error);
 
-
-  // 1.  Добавляємо в useEffect та запускаємо fetchTasks при монтуванні
+  //  1.  Добавляємо в useEffect та запускаємо fetchTasks при монтуванні
   useEffect(() => {
     dispatch(fetchTasks());
   }, [dispatch]);
@@ -33,4 +37,7 @@ export default function App7lms() {
 }
 
 
-// 3.  Наступне в файлі operations
+//  3.  Наступне в файлі operations
+
+//  14.  Попереднє в файлі filtersSlice
+//  16.  Наступне в файлі TaskList

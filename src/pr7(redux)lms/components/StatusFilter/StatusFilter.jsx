@@ -1,11 +1,14 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Button } from "../Button/Button";
-import { setStatusFilter } from "../../redux/filtersSlice";
+import { selectStatusFilter, setStatusFilter } from "../../redux/filtersSlice";
 import css from "./StatusFilter.module.css";
 
 export const StatusFilter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector((state) => state.filters.status);
+  //  18.  Змінюємо інлайн-ф-ції (state) => state.tasks.isLoading на селектори створені в слайсах
+  // const filter = useSelector((state) => state.filters.status);
+  const filter = useSelector(selectStatusFilter);
+
 
   const handleFilterChange = (filter) => dispatch(setStatusFilter(filter));
 
@@ -32,3 +35,7 @@ export const StatusFilter = () => {
     </div>
   );
 };
+
+
+//  17.  Попереднє в файлі TaskCounter
+//  19.  Наступне в файлі taskSlice
