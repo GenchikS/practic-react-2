@@ -143,6 +143,27 @@ switch (statusFilter) {
 //  18.  Попереднє в файлі StatusFilter
 //  20.  Наступне в файлі TaskList
 
+//  23. Переносимо логіку лічильника з файлу TaskCounter, створивши селектор selectTaskCounter
+export const selectTaskCounter = state => {
+    const tasks = useSelector(selectTask);
+
+    return tasks.reduce(
+      (acc, task) => {
+        if (task.completed) {
+          acc.completed += 1;
+        } else {
+          acc.active += 1;
+        }
+        return acc;
+      },
+      { active: 0, completed: 0 }
+    );
+}
+
+//  22.  Попереднє в файлі TaskList
+//  24.  Наступне в файлі TaskCounter
+
+
 
 
 

@@ -6,7 +6,7 @@ import { selectGetVisibleTasks } from "../../redux/taskSlice.js";
 // import { selectStatusFilter } from "../../redux/filtersSlice.js";
 
 
-//   21.  Видаляємо ф-цію getVisibleTasks, т.я. ми її перенесли в файл taskSlice
+//   22.  Видаляємо ф-цію getVisibleTasks, т.я. ми її перенесли в файл taskSlice
 // const getVisibleTasks = (tasks, statusFilter) => {
 //   switch (statusFilter) {
 //     case "active":
@@ -46,4 +46,8 @@ export const TaskList = () => {
 
 //  15.  Попереднє в файлі App7lms
 //  17.  Наступне в файлі TaskCounter
+
+//  19.  Попереднє в файлі taskSlice
+//  23.  Наступне в файлі taskSlice
+
 

@@ -1,23 +1,28 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import css from "./TaskCounter.module.css";
-import { selectTask } from "../../redux/taskSlice.js";
+// import { selectTask } from "../../redux/taskSlice.js";
+import {  selectTaskCounter } from "../../redux/taskSlice.js";
+
 
 export const TaskCounter = () => {
   //   17.  Змінюємо інлайн-ф-ції (state) => state.tasks.isLoading на селектори створені в слайсах
   // const tasks = useSelector((state) => state.tasks.items);
-  const tasks = useSelector(selectTask);
 
-  const count = tasks.reduce(
-    (acc, task) => {
-      if (task.completed) {
-        acc.completed += 1;
-      } else {
-        acc.active += 1;
-      }
-      return acc;
-    },
-    { active: 0, completed: 0 }
-  );
+  //  24.  Видаляємо лічильник та переносимо логіку в файл taskSlice
+  // const tasks = useSelector(selectTask);
+  const count = selectTaskCounter();
+
+  // const count = tasks.reduce(
+  //   (acc, task) => {
+  //     if (task.completed) {
+  //       acc.completed += 1;
+  //     } else {
+  //       acc.active += 1;
+  //     }
+  //     return acc;
+  //   },
+  //   { active: 0, completed: 0 }
+  // );
 
   return (
     <div>
@@ -30,3 +35,5 @@ export const TaskCounter = () => {
 
 //  16.  Попереднє в файлі taskSlice
 //  18.  Наступне в файлі statusFilter
+
+//  23. Попереднє в файлі taskSlice
