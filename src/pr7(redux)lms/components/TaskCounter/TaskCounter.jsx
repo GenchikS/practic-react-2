@@ -1,4 +1,4 @@
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import css from "./TaskCounter.module.css";
 // import { selectTask } from "../../redux/taskSlice.js";
 import {  selectTaskCounter } from "../../redux/taskSlice.js";
@@ -10,7 +10,8 @@ export const TaskCounter = () => {
 
   //  24.  Видаляємо лічильник та переносимо логіку в файл taskSlice
   // const tasks = useSelector(selectTask);
-  const count = selectTaskCounter();
+  //  console.log("coun");
+  const count = useSelector(selectTaskCounter);
 
   // const count = tasks.reduce(
   //   (acc, task) => {
@@ -37,3 +38,4 @@ export const TaskCounter = () => {
 //  18.  Наступне в файлі statusFilter
 
 //  23. Попереднє в файлі taskSlice
+//  25. Наступне в файлі taskSlice

@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { addTask, deleteTask, fetchTasks, toggleCompleted } from "./operations";
 import { useSelector } from "react-redux";
 import { selectStatusFilter } from "./filtersSlice.js";
@@ -144,25 +144,40 @@ switch (statusFilter) {
 //  20.  Наступне в файлі TaskList
 
 //  23. Переносимо логіку лічильника з файлу TaskCounter, створивши селектор selectTaskCounter
-export const selectTaskCounter = state => {
-    const tasks = useSelector(selectTask);
-
-    return tasks.reduce(
-      (acc, task) => {
-        if (task.completed) {
-          acc.completed += 1;
-        } else {
-          acc.active += 1;
-        }
-        return acc;
-      },
-      { active: 0, completed: 0 }
-    );
-}
+// export const selectTaskCounter = state => {
+//     const tasks = useSelector(selectTask);
+//     console.log("coun")
+//     return tasks.reduce(
+//       (acc, task) => {
+//         if (task.completed) {
+//           acc.completed += 1;
+//         } else {
+//           acc.active += 1;
+//         }
+//         return acc;
+//       },
+//       { active: 0, completed: 0 }
+//     );
+// }
 
 //  22.  Попереднє в файлі TaskList
 //  24.  Наступне в файлі TaskCounter
 
+//  25. Робимо мемошзацію для того щоб не робились зайві обчислення коли немає змін в масиві чи об'єкті
+export const selectTaskCounter = createSelector([selectTask],  tasks => {
+    // console.log("coun");
+  return tasks.reduce(
+    (count, task) => {
+      if (task.completed) {
+        count.completed += 1;
+      } else {
+        count.active += 1;
+      }
+      return count;
+    },
+    { active: 0, completed: 0 }
+  );
+});
 
 
 
