@@ -30,7 +30,7 @@ axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers";
 export const fetchTasks = createAsyncThunk("tasks/fetchAll", async (_, thunkAPI) => {
   try {
     const response = await axios.get("/");
-    // console.log(response.data);
+    console.log(response.data);
     // 15.  При успішній опереції повертається проміс
     return response.data;
   } catch (err) {

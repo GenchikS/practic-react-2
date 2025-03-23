@@ -15,10 +15,10 @@ import { Provider } from "react-redux";
 // App6 test
 // import App6 from "./App6(redux)test.jsx";
 // import { store } from "./pr6(redux)test/redux/store.js";
-// import App7Test from "./App7Test.jsx";
-// import { store } from "./pr7(redux)test/redux/store.js";
-import App7lms from "./App7lms.jsx";
-import { store } from "./pr7(redux)lms/redux/store.js";
+// import App7lms from "./App7lms.jsx";
+// import { store } from "./pr7(redux)lms/redux/store.js";
+import App7Test from "./App7Test.jsx";
+import { store } from "./pr7(redux)test/redux/store.js";
 
 
 // Pr4 створення контексту, та передача його через Provider
@@ -65,15 +65,22 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     {/* </Provider> */}
     {/* </BrowserRouter> */}
     {/* <BrowserRouter> */}
-      {/* необхідно прописати вірний шлях до store */}
-      {/* <Provider store={store}> */}
-        {/* <App7Test /> */}
-      {/* </Provider> */}
+    {/* необхідно прописати вірний шлях до store */}
+    {/* <Provider store={store}> */}
+    {/* <App7Test /> */}
+    {/* </Provider> */}
     {/* </BrowserRouter> */}
+    {/* <BrowserRouter> */}
+    {/* необхідно прописати вірний шлях до store */}
+    {/* <Provider store={store}> */}
+    {/* <App7lms /> */}
+    {/* </Provider> */}
+    {/* </BrowserRouter> */}
+    {/* App7Test + селектори*/}
     <BrowserRouter>
       {/* необхідно прописати вірний шлях до store */}
       <Provider store={store}>
-        <App7lms />
+        <App7Test />
       </Provider>
     </BrowserRouter>
   </React.StrictMode>

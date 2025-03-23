@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+    gap: 12px;
+}
+
+.list{
+    width: 200px;
+    padding: 8px;
+    background-color: aqua;
+    border-radius: 6px;
+}
