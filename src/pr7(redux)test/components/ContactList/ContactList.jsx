@@ -3,18 +3,25 @@ import css from "./ContactList.module.css"
 // import { contactsApi } from "../../contactsApi.js";
 import Contact from "../Contact/Contact.jsx";
 import { useSelector } from "react-redux";
+import { getFilterSelectorCity, getFilterTransmission } from "../Select/SelectFiltersAll.jsx";
+import { selectCity, selectTransmission } from "../../redux/filtersSlice.js";
+// import { selectCity } from "../../redux/filtersSlice.js";
 // import { getFilterEngine, getFilterSelectorContacts, getFilterTransmissionContacts } from "../Select/SelectFiltersAll.jsx";
 // import NotFound from "../NotFound/NotFound.jsx";
 
 export default function ContactList() {
-  const { items, isLoading, error } = useSelector((state) => state.tasks);
+  const { items, isLoading, error } = useSelector((state) => state.tasks.items);
   // console.log("items", items.items);
-  const itemsAll = items.items;
+  // const itemsAll = items;
   // console.log("itemsAll", itemsAll);
+  // const filterCity = us
+
+  // console.log("selectCity", selectCity);
 
   // const [contacts, setContact] = useState([]);
-  // const city = useSelector((state) => state.filters.city);
-//  console.log("city", city);
+  const filterCityState = useSelector(selectCity);
+  const filterTransmissionState = useSelector(selectTransmission);
+ console.log("filterTransmissionState", filterTransmissionState);
   
   // const transmission = useSelector((state) => state.filters.transmission);
   // console.log("transmission", transmission);
@@ -32,11 +39,14 @@ export default function ContactList() {
   // console.log(contacts);
 
   // 9.  Створюємо ф-цію фшльтрації за містом
-  // const filterContacts = getFilterSelectorContacts(contacts, city);
-  // console.log("filterContacts", filterContacts);
+  const filterCity = getFilterSelectorCity(items, filterCityState);
+  // console.log("filterContacts", filterCity);
 
-  // const filterTransmission = getFilterTransmissionContacts(filterContacts, transmission);
-  // console.log("filterTransmission", filterTransmission);
+  const filterTransmission = getFilterTransmission(
+    filterCity,
+    filterTransmissionState
+  );
+  console.log("filterTransmission", filterTransmission);
 
   // const filterEngine = getFilterEngine(filterTransmission, engine);
   // console.log("filterEngine", filterEngine);
@@ -45,12 +55,11 @@ export default function ContactList() {
      <ul className={css.container}>
        {/* 10.  Змінюємо contacts на відфільтрований масив filterContacts */}
        {/* використано  умовний рендеренг*/}
-       {itemsAll.map((item) => (
-             <li key={item.id} className={css.list}>
-               <Contact item={item} />
-             </li>
-           ))
-         }
+       {filterTransmission.map((item) => (
+         <li key={item.id} className={css.list}>
+           <Contact item={item} />
+         </li>
+       ))}
      </ul>
    );
 }

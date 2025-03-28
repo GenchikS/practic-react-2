@@ -26,7 +26,7 @@ import { fetchTasks } from "./operations.js";
 
 //  12. Перероблюємо файл tasksSlice та добавляємо builder
 const tasksSlice = createSlice({
-    name: "tasks",
+    name: "items",
     initialState: {
         items: [],
         isLoading: false,
@@ -42,6 +42,8 @@ const tasksSlice = createSlice({
         (state.isLoading = false),
           (state.error = null),
           (state.items = action.payload);
+        // console.log("action", action.payload);
+        
       })
       .addCase(fetchTasks.rejected, (state, action) => {
         (state.isLoading = false), (state.error = action.payload);
