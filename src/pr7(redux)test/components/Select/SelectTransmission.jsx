@@ -1,13 +1,13 @@
 import { useId, useState } from "react";
 import css from "./SelectTransmission.module.css";
 import { useDispatch, useSelector } from "react-redux";
-// import { transmissionSelect } from "../../redux/action.js";
 import { transmissionSelect } from "../../redux/operations.js"
+import { selectTransmission } from "../../redux/filtersSlice.js";
 
 
 export default function SelectTransmission() {
-  const [transmission, setTransmission] = useState("all"
-    // useSelector((state) => state.filters.transmission)
+  const [transmission, setTransmission] = useState(
+    useSelector(selectTransmission)
   );
   // console.log("transmission", transmission);
  

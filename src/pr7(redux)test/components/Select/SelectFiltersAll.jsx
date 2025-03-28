@@ -3,7 +3,7 @@ export const getFilterSelectorCity = (items, filterCity) => {
   // console.log("filterCity", filterCity);
   //   console.log("items", items);
   switch (filterCity) {
-    case `All`:
+    case `all`:
       return items.map((contact) => contact);
     case `${filterCity}`:
       return items.filter(
@@ -17,9 +17,10 @@ export const getFilterSelectorCity = (items, filterCity) => {
 
 
 export const getFilterTransmission = (filterCity, filterTransmissionState) => {
-  // console.log("filterContacts", filterContacts);
+  console.log("filterCity", filterCity);
+  console.log("filterTransmissionState", filterTransmissionState);
   switch (filterTransmissionState) {
-    case `All`:
+    case `all`:
       return filterCity.map((contact) => contact);
     case `${filterTransmissionState}`:
       return filterCity.filter(
@@ -30,14 +31,16 @@ export const getFilterTransmission = (filterCity, filterTransmissionState) => {
   }
 };
 
-export const getFilterEngine = (filterTransmission, engine) => {
+export const getFilterEngine = (filterTransmission, filterEngineState) => {
   // console.log("filterTransmission", filterTransmission);
   // console.log("engine", engine);
-  switch (engine) {
-    case "All":
+  switch (filterEngineState) {
+    case "all":
       return filterTransmission.map((contact) => contact);
-    case `${engine}`:
-      return filterTransmission.filter((contact) => contact.engine === engine);
+    case `${filterEngineState}`:
+      return filterTransmission.filter(
+        (contact) => contact.engine === filterEngineState
+      );
     default:
       return filterTransmission;
   }

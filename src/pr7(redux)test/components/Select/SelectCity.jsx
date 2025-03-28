@@ -1,22 +1,17 @@
 import css from "./SelectCity.module.css"
 import { useId, useState } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
 import { citySelect } from "../../redux/operations.js";
-// import { selectFilterCity } from "../../redux/filtersSlice.js";
-// import { citySelect } from "../../redux/action.js";
+import { selectCity } from "../../redux/filtersSlice.js";
+
 
 export default function Select() {
   const selectId = useId();
-
-  // const [city, setCity] = useState(useSelector(selectCitySelect));
-  const [city, setCity] = useState("All");
+  const [city, setCity] = useState(useSelector(selectCity));
   // console.log("city", city);
 
-  // 7. Створюємо useDispatch та прописуємо стан за defautl
   const dispatch = useDispatch();
 
-  // 6. Замінюємо місто в стані useState (setCity - в select) на dispatch
   const handleCity = (city) => {
     // console.log(city);
     setCity(city);
@@ -36,7 +31,7 @@ export default function Select() {
         onChange={(evn) => handleCity(evn.target.value)}
         className={css.select}
       >
-        <option value="All">All</option>
+        <option value="all">All</option>
         <option value="Kyiv">Kiyv</option>
         <option value="Poltava">Poltava</option>
         <option value="Dnipro">Dnipro</option>
@@ -48,6 +43,3 @@ export default function Select() {
     </div>
   );
 }
-
-//  3. Попереднє в файлі store
-//  8. Наступне в файлі action

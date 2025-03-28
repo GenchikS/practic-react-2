@@ -12,3 +12,8 @@
     background-color: aqua;
     border-radius: 6px;
 }
+
+.notFound{
+    font-size: 24px;
+    font-weight: 600;
+}
