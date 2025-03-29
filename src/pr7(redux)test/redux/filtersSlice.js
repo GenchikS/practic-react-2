@@ -27,7 +27,7 @@ const filtersSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(transmissionSelect.fulfilled, (state, action) => {
-        // console.log("action", action.payload);
+        console.log("action", action.payload);
         (state.isLoading = true),
           (state.error = null),
           (state.transmission = action.payload);

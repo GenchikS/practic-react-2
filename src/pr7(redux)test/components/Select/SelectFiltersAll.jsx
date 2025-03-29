@@ -17,8 +17,8 @@ export const getFilterSelectorCity = (items, filterCity) => {
 
 
 export const getFilterTransmission = (filterCity, filterTransmissionState) => {
-  console.log("filterCity", filterCity);
-  console.log("filterTransmissionState", filterTransmissionState);
+  // console.log("filterCity", filterCity);
+  // console.log("filterTransmissionState", filterTransmissionState);
   switch (filterTransmissionState) {
     case `all`:
       return filterCity.map((contact) => contact);
