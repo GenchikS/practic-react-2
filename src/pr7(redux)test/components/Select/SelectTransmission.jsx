@@ -15,7 +15,7 @@ export default function SelectTransmission() {
   const dispatch = useDispatch();
 
    const handleTransmission = (transmission) => {
-     // console.log("select", transmission)
+     // console.log("transmission", transmission)
      setTransmission(transmission);
      dispatch(transmissionSelect(transmission));
    };

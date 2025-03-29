@@ -10,6 +10,7 @@ const filtersSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      //  необхідно робити для того, щоб action.payload загнати в state та далі використовувати
       .addCase(citySelect.pending, (state) => {
         state.isLoading = true;
       })
@@ -54,6 +55,7 @@ const filtersSlice = createSlice({
 
 export default filtersSlice.reducer;
 
+//  загальний стан, який потім викликається при необхідності через useSelector у файлі ContactList для фільтрації
 export const selectCity = (state) => state.filters.city;
 export const selectTransmission = (state) => state.filters.transmission;
 export const selectEngine = (state) => state.filters.engine;

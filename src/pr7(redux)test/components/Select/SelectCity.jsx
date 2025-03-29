@@ -26,7 +26,7 @@ export default function Select() {
       <select
         id={selectId}
         value={city}
-        // 7.1 Змінюємо стан setCity (перемістили його в ф-цію) на ф-цію handleCity для отримення вибраного міста
+        // Змінюємо стан setCity (перемістили його в ф-цію) на ф-цію handleCity для отримення вибраного міста
         // onChange={(evn) => setCity(evn.target.value)}
         onChange={(evn) => handleCity(evn.target.value)}
         className={css.select}

@@ -3,6 +3,7 @@ import Contact from "../Contact/Contact.jsx";
 import { useSelector } from "react-redux";
 import { getFilterEngine, getFilterSelectorCity, getFilterTransmission } from "../Select/SelectFiltersAll.jsx";
 import { selectCity, selectEngine, selectTransmission } from "../../redux/filtersSlice.js";
+import NotFound from "../NotFound/NotFound.jsx";
 
 
 export default function ContactList() {
@@ -12,13 +13,9 @@ export default function ContactList() {
   const filterTransmissionState = useSelector(selectTransmission);
   const filterEngineState = useSelector(selectEngine);
 
+  // фільтри, можна додати безліч
   const filterCity = getFilterSelectorCity(items, filterCityState);
-
-  const filterTransmission = getFilterTransmission(
-    filterCity,
-    filterTransmissionState
-  );
-
+  const filterTransmission = getFilterTransmission(filterCity, filterTransmissionState);
   const filterTotal = getFilterEngine(filterTransmission, filterEngineState);
   // console.log("filterTotal", filterTotal);
 
@@ -31,7 +28,7 @@ export default function ContactList() {
           </li>
         ))
       ) : (
-        <p className={css.notFound}>Not found!</p>
+        <NotFound/>
       )}
     </ul>
   );
