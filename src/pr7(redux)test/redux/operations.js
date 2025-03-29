@@ -31,7 +31,7 @@ export const citySelect = createAsyncThunk("filters/fetchCity", async (city, thu
 export const transmissionSelect = createAsyncThunk(
   "filters/fetchTransmission",
   async (transmission, thunkAPI) => {
-    console.log("transmission", transmission);
+    // console.log("transmission", transmission);
     try {
       const response = await axios.get("/");
       const dataCity = response.data.items;
